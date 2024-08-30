@@ -38,3 +38,7 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
     background-color: rgba(255,255,255, 0.1);
     backdrop-filter: blur(10px);
   }
+
+  .filter-shadow {
+  
+  }

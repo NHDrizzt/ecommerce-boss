@@ -34,10 +34,13 @@ export default function Header() {
       </div>
     
 
-      <div className="absolute inset-x-0 top-0 flex justify-center mb-4">
+      <div className="absolute inset-x-0 top-0 flex justify-center mb-4 filter-shadow">
         <Image src="/assets/white-shoes.png" width={840} height={0} /> {/* Adjust width and height as needed */}
       </div>
       
+      <div className="absolute -z-10 ">
+        <img src="/assets/ellipse-2.png" alt=""/>
+      </div>
 
     </header>
   );
