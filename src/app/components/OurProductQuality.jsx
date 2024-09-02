@@ -18,7 +18,7 @@ export default function OurProductQuality({
   }];
 
   return (
-    <section className="mt-[524px] mx-auto flex">
+    <section className="mt-[524px] mx-auto flex gap-x-10">
       <div className="pl-[165px]">
         <h1 className="text-[71px] font-semibold">Our Product Quality</h1>
         <div className="flex flex-col gap-y-[40px] mt-[56px]">

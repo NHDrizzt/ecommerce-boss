@@ -1,4 +1,5 @@
 import CompanyAdvantages from "./components/CompanyAdvantages";
+import CustomerTestimonials from "./components/CustomerTestimonials";
 import Header from "./components/Header";
 import OurProductQuality from "./components/OurProductQuality";
 import OurProducts from "./components/OurProducts";
@@ -14,6 +15,8 @@ export default function Home() {
       <CompanyAdvantages  />
       <OurProducts  />
       <OurProductQuality  />
+      <CustomerTestimonials  />
+
       <div>
         <img src="" alt="" />
         <p>Online Support</p>
