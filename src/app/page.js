@@ -1,5 +1,6 @@
 import CompanyAdvantages from "./components/CompanyAdvantages";
 import Header from "./components/Header";
+import OurProductQuality from "./components/OurProductQuality";
 import OurProducts from "./components/OurProducts";
 import SubHeader from "./components/SubHeader";
 import ToggleDarkMode from "./components/ToggleDarkmode";
@@ -12,6 +13,7 @@ export default function Home() {
       <ToggleDarkMode  />
       <CompanyAdvantages  />
       <OurProducts  />
+      <OurProductQuality  />
       <div>
         <img src="" alt="" />
         <p>Online Support</p>
