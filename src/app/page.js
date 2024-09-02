@@ -1,5 +1,6 @@
 import CompanyAdvantages from "./components/CompanyAdvantages";
 import CustomerTestimonials from "./components/CustomerTestimonials";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import OurProductQuality from "./components/OurProductQuality";
 import OurProducts from "./components/OurProducts";
@@ -16,12 +17,7 @@ export default function Home() {
       <OurProducts  />
       <OurProductQuality  />
       <CustomerTestimonials  />
-
-      <div>
-        <img src="" alt="" />
-        <p>Online Support</p>
-        <p>24 Hours a Day 7 Day in Week</p>
-      </div>
+      <Footer  />
     </div>
   );
 }
