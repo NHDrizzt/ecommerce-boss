@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import excludeSrc from '/public/assets/logo.png'; // import the image
+import excludeSrc from '/public/assets/logo.png';
 import { useEffect, useState } from "react";
 
 
@@ -84,7 +84,7 @@ const handleCartModel = () => {
         <ul className="flex items-center text-white text-xl font-semibold leading-4	tracking-widest">
           <li className="pr-[52px] pl-[62px]">HOME</li>
           <div className="flex items-center pr-[83px] gap-x-3">
-           <p className="">OUR PRODUCT'S</p>
+           <p className="">OUR PRODUCT&rsquo;S</p>
            <img className="w-[14px] h-[14px]" src="/assets/right-arrow-3.png" alt="" />
           </div>
           <div className="relative flex items-center gap-x-[45px]">

@@ -1,8 +1,6 @@
 import TestimonialCard from "../ReusableComponents/TestimonialCard";
 
-export default function CustomerTestimonials({
-
-}) {
+export default function CustomerTestimonials() {
   const customers = [{
     id: 1,
     imageUrl: "/assets/customerimage1.png",
@@ -28,7 +26,6 @@ export default function CustomerTestimonials({
           </div>
           <div className="max-w-[851px] text-center">
             <p className="text-[24px] mt-[42px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-
           </div>
       </div>
       <div>

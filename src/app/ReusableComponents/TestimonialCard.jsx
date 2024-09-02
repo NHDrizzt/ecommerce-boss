@@ -12,7 +12,7 @@ export default function TestimonialCard({
             <div className='relative mr-5 w-[500px] bg-blue-400'>
               <img className='absolute -left-[71px]' src={customer.imageUrl} alt={customer.name} />
             </div>
-            <img className='ml-auto' src="/assets/chat.png" alt="" />
+            <img className='ml-auto' src="/assets/chat.png" alt="chat icon" />
           </div>
           <p className='text-[24px] pb-[40px]'>{customer.description}</p>
           <div className='pb-[56px]'>
