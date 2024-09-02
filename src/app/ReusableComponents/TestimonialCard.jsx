@@ -10,7 +10,7 @@ export default function TestimonialCard({
         <div className='max-w-[730px] bg-custom-fade rounded-[60px] pt-[56px] max-h-[458px] px-[71px] ' key={customer.name}>
           <div className='flex justify-between items-start max-h-[85px] mb-10'>
             <div className='relative mr-5 w-[500px] bg-blue-400'>
-              <img className='absolute -left-[71px]' src={customer.imageUrl} alt={customer.name} />
+              <img className='absolute -left-[71px]' src={customer.imageUrl} alt={customer.alt} />
             </div>
             <img className='ml-auto' src="/assets/chat.png" alt="chat icon" />
           </div>

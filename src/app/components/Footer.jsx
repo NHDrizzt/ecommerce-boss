@@ -6,7 +6,7 @@ export default function Footer() {
     <section className="bg-black h-[567px] max-h-[567px] mt-[185px]">
         <div className="pt-[82px] flex justify-center">
             <div className="w-[168px] h-[73px]">
-              <Image className="w-full h-full object-cover" src="/assets/logo.png" width={168} height={73} />
+              <Image className="w-full h-full object-cover" src="/assets/logo.png" width={168} height={73} alt="boss shoes logo" />
             </div>
         </div>
         <div className="flex ml-[367px]  mt-[106px] gap-x-[154px] text-[28px] font-medium">

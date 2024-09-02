@@ -45,25 +45,20 @@ const AddOneMoreItemToCart = (index) => {
 }
 
 const RemoveOneItemFromCart = (item) => {
-  // Find the index of the item to be removed
   const index = cartItems.findIndex(cartItem => cartItem.id === item.id);
   
-  // If the item is found
   if (index !== -1) {
     const updatedCartItems = [...cartItems];
     const itemToUpdate = updatedCartItems[index];
 
-    // If the item quantity is greater than 1, decrease the quantity
     if (itemToUpdate.quantity > 1) {
       itemToUpdate.quantity -= 1;
       setCartTotalValue(cartTotalValue - itemToUpdate.price);
     } else {
-      // If the quantity is 1, remove the item from the cart
       updatedCartItems.splice(index, 1);
       setCartTotalValue(cartTotalValue - itemToUpdate.price);
     }
 
-    // Update the cart items state and localStorage
     setCartItems(updatedCartItems);
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   }
@@ -88,28 +83,30 @@ const handleCartModel = () => {
            <img className="w-[14px] h-[14px]" src="/assets/right-arrow-3.png" alt="" />
           </div>
           <div className="relative flex items-center gap-x-[45px]">
-            <Image className="" src="/assets/search-icon.png" width={33} height={20} />
+            <div className="w-full max-w-[33px]">
+               <Image className="w-[33px] h-auto" src="/assets/search-icon.png" width={33} height={20} alt="search icon"/>
+            </div>
             <button id="cart-icon" className="relative" onClick={handleCartModel}>
               <span data-test-id="cart-length" className={`${cartItems.length === 0 ? "hidden" : "block absolute bg-red-500 rounded-full p-1 -bottom-2 -right-2"}`}>{cartItems.length}</span>
-             <Image src="/assets/bag.png" width={34} height={20} />
+             <Image src="/assets/bag.png" width={34} height={20} alt="cart icon" />
             </button>
             <div className="ml-[39px] mr-[45px]">
-            <Image src="/assets/group-two.png" width={33} height={20} />
+            <Image className="" src="/assets/group-two.png" width={33} height={20} alt="sidebar icon"/>
             </div>
           </div>
         </ul>
       </nav>
       <div className="absolute inset-x-0 -z-10 top-[273px] flex justify-center">
-        <Image src="/assets/BIGAIR.png" width={1904} height={20} />
+        <Image src="/assets/BIGAIR.png" width={1904} height={20} alt="big air logo"/>
       </div>
     
 
       <div className="absolute drop-shadow-white inset-x-0 -z-10 top-0 flex justify-center mb-4 filter-shadow">
-        <Image src="/assets/white-shoes.png" width={840} height={0} />
+        <Image src="/assets/white-shoes.png" width={840} height={0} alt="white shoes"/>
       </div>
       
       <div className="absolute -z-20 ">
-        <img src="/assets/ellipse-2.png" alt=""/>
+        <img src="/assets/ellipse-2.png" alt="ellipse 1 drawn"/>
       </div>
 
         {

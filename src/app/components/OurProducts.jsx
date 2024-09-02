@@ -48,7 +48,7 @@ export default function OurProducts({
         }
       </div>
       <div className="absolute -z-10 -top-[336px] right-1">
-        <img src="/assets/ellipse2.png" alt="" />
+        <img src="/assets/ellipse2.png" alt="ellipse drawn" />
       </div>
     </section>
   );

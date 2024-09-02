@@ -4,11 +4,13 @@ export default function CustomerTestimonials() {
   const customers = [{
     id: 1,
     imageUrl: "/assets/customerimage1.png",
+    alt: "customer image",
     name: "Ajex Vento",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
   }, {
     id: 2,
     imageUrl: "/assets/customerimage2.png",
+    alt: "customer image",
     name: "Ajex Ventos",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
   }];

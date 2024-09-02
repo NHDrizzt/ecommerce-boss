@@ -3,14 +3,17 @@ export default function OurProductQuality() {
 
   const qualities = [{
     imageUrl: "/assets/medal.png",
+    alt: "medal icon",
     title: "Best quality shoes",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...",
   }, {
     imageUrl: "/assets/flexarm.png",
+    alt: "flexarm icon",
     title: "Long Lasting Shoes",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...",
   }, {
     imageUrl: "/assets/diamond.png",
+    alt: "diamond icon",
     title: "Best Value",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...",
   }];
@@ -24,7 +27,7 @@ export default function OurProductQuality() {
             qualities.map((quality) => (
               <div key={quality.title} className="flex gap-x-[31px] ">
                 <div className="border-2 flex items-center rounded-[20px] w-[73px] h-[73px] justify-center">
-                  <img src={quality.imageUrl} alt="" />
+                  <img src={quality.imageUrl} alt={quality.alt} />
                 </div>
                 <div className="flex flex-col max-w-[275px]">
                   <p className="text-[24px] font-semibold">{quality.title}</p>
