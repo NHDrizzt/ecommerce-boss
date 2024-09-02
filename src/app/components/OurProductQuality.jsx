@@ -1,7 +1,5 @@
 
-export default function OurProductQuality({
-
-}) {
+export default function OurProductQuality() {
 
   const qualities = [{
     imageUrl: "/assets/medal.png",
@@ -37,11 +35,10 @@ export default function OurProductQuality({
           }
         </div>
       </div>
-      <div className="relative ml-10">
+      <div className="relative">
         <img src="/assets/ellipse3.png " alt="" />
         <div className="w-[841px] ">
-          <img className="absolute -rotate-12 right-40 -top-24 w-full h-full object-cover " src="/assets/tests.png" alt="Green Shoes" />
-
+          <img className="absolute -rotate-12 right-40 -top-24 w-full h-full object-cover " src="/assets/tests.png" alt="Green Shoes" />  
         </div>
       </div>
     </section>

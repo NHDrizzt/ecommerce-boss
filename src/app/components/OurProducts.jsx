@@ -1,9 +1,24 @@
+'use client';
 import data from "../../../data";
-import Image from "next/image";
 export default function OurProducts({
-
+  cartItems,
+  setCartItems,
+  setCartTotalValue,
+  cartTotalValue
 }) {
 
+  const AddItemToCart = (item) => {
+    const itemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id)
+    if(itemIndex === -1) {
+        cartItems.push({...item, quantity: 1})
+        setCartTotalValue(cartTotalValue + item.price)
+    } else {
+        cartItems[itemIndex].quantity += 1;
+        setCartTotalValue(cartTotalValue + item.price)
+    }
+    setCartItems([...cartItems])
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+}
 
   return (
     <section className="relative">
@@ -13,10 +28,10 @@ export default function OurProducts({
       </div>
 
 
-      <div className="grid grid-cols-3 gap-x-10 m-[50px] gap-y-5">
+      <div data-test-id="parent-grid-products" className="grid grid-cols-3 gap-x-10 m-[50px] gap-y-5">
         {
           data.map((product) => (
-            <div className="relative custom-gradient shadow-custom-shadow flex flex-col justify-center items-center rounded-[70px] max-h-[678px] " key={product.id}>
+            <div data-test-id="grid-products" className="relative custom-gradient shadow-custom-shadow flex flex-col justify-center items-center rounded-[70px] max-h-[678px] " key={product.id}>
               <div className="absolute w-[461px] h-[461px] -top-2 ">
               <img className="drop-shadow-shoes w-full h-full object-cover" src={product.image} alt={product.alt} />
               </div>
@@ -24,19 +39,17 @@ export default function OurProducts({
               <p className="text-[18px] font-semibold max-w-[241px] mt-[30px]">{product.description}</p>
               <div className="flex justify-between items-center max-w-[368px] w-full mt-[38px] mb-[90px]">
                 <p className="text-[32px] font-semibold">Rs. {product.price},00</p>
-                <div className="flex items-center border-2 rounded-xl p-3 border-white">
+                <button id="product-icon" onClick={() => AddItemToCart(product)} className="flex items-center border-2 rounded-xl p-3 border-white">
                   <img className="" src="assets/bag.png" alt="Bag Icon" />
-                </div>
+                </button>
               </div>
             </div>
           ))
         }
       </div>
-      <div className="absolute -z-10 -top-[336px] right-8">
+      <div className="absolute -z-10 -top-[336px] right-1">
         <img src="/assets/ellipse2.png" alt="" />
-
       </div>
-
     </section>
   );
 }
