@@ -1,0 +1,42 @@
+import data from "../../../data";
+import Image from "next/image";
+export default function OurProducts({
+
+}) {
+
+
+  return (
+    <section className="relative">
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-[72px] font-semibold mt-[149px]">Our Products </h1>
+        <span className="text-center w-[109px] h-1 bg-white"></span>
+      </div>
+
+
+      <div className="grid grid-cols-3 gap-x-10 m-[50px] gap-y-5">
+        {
+          data.map((product) => (
+            <div className="relative custom-gradient shadow-custom-shadow flex flex-col justify-center items-center rounded-[70px] max-h-[678px] " key={product.id}>
+              <div className="absolute w-[461px] h-[461px] -top-2 ">
+              <img className="drop-shadow-shoes w-full h-full object-cover" src={product.image} alt={product.alt} />
+              </div>
+              <p className="text-[38px] mt-[440px] font-semibold">{product.name}</p>
+              <p className="text-[18px] font-semibold max-w-[241px] mt-[30px]">{product.description}</p>
+              <div className="flex justify-between items-center max-w-[368px] w-full mt-[38px] mb-[90px]">
+                <p className="text-[32px] font-semibold">Rs. {product.price},00</p>
+                <div className="flex items-center border-2 rounded-xl p-3 border-white">
+                  <img className="" src="assets/bag.png" alt="Bag Icon" />
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div className="absolute -z-10 -top-[336px] right-8">
+        <img src="/assets/ellipse2.png" alt="" />
+
+      </div>
+
+    </section>
+  );
+}

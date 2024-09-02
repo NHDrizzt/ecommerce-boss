@@ -10,6 +10,10 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
   border:0; /* kills Gecko bug when img's are placed inside links */
   vertical-align:bottom; /* set vertical align to bottom for IE */
   }
+
+  :root {
+    --base-background-color: rgba(255, 255, 255, 0.1);
+  }
   /* ------------------- Defaults ------------------- */
   html {
   height:100%; 
@@ -23,7 +27,6 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
   color:#FFF;
   }
   /* ------------------ Typography ------------------- */
-
   p, ul, ol {
   font-size:1em;
   }
@@ -34,11 +37,42 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
   h5 {font-size:1.2em;}
   h6 {font-size:1.1em;}
 
+  .custom-gradient {
+    background: linear-gradient(to top, var(--base-background-color), transparent);
+  }
+
   .bg-custom-fade {
-    background-color: rgba(255,255,255, 0.1);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255,255,255, 0.09);
+    
+    /* backdrop-filter: blur(10px); */
   }
 
   .filter-shadow {
   
   }
+
+  .bolinha {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: scroll;
+    animation-name: scroll;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(28px);
+    }
+}
