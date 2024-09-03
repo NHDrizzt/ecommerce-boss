@@ -22,7 +22,6 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
   }
   body {
   height:100%; /* helps make height 100% */
-  font:100%/1.5 Arial, Helvetica, sans-serif; /* 100% = 16px, 93.75% = 15px, 87.5% = 14px, 81.25% = 13px, 75% = 12px - font-size in % prevents IE's resize bug */
   background-color: #77C0E9;
   color:#FFF;
   }

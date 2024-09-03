@@ -6,9 +6,6 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      "sans": ["Inter", "sans-serif"],
-    },
     extend: {
       boxShadow: {
         'custom-shadow': '0 100px 77.3px rgba(0, 0, 0, 0.09)',

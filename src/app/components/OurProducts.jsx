@@ -1,5 +1,8 @@
 'use client';
 import data from "../../../data";
+import PropTypes from 'prop-types';
+import Image from "next/image";
+
 export default function OurProducts({
   cartItems,
   setCartItems,
@@ -40,7 +43,9 @@ export default function OurProducts({
               <div className="flex justify-between items-center max-w-[368px] w-full mt-[38px] mb-[90px]">
                 <p className="text-[32px] font-semibold">Rs. {product.price},00</p>
                 <button aria-labelledby={`Add ${product.name} to cart`} id="product-icon" onClick={() => AddItemToCart(product)} className="flex items-center border-2 rounded-xl p-3 border-white">
-                  <img className="" src="assets/bag.png" alt="Bag to add to the cart icon" />
+                  <div className="w-[29px] h-[29px]">
+                    <Image className="w-full h-full" sizes="100vw" src="/assets/bag.png" alt="Bag to add to the cart icon" width="0" height="0" />
+                  </div>
                 </button>
               </div>
             </div>
@@ -52,4 +57,12 @@ export default function OurProducts({
       </div>
     </section>
   );
+}
+
+//prop validation
+OurProducts.propTypes = {
+  cartItems: PropTypes.array,
+  setCartItems: PropTypes.func,
+  setCartTotalValue: PropTypes.func,
+  cartTotalValue: PropTypes.number
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import {companyAdvantages} from '../utils/constants';
 
 const getImageClassName = (title) => {
   if (title === "Free Shipping World Wide") {
@@ -11,20 +12,6 @@ const getImageClassName = (title) => {
 };
 
 export default function CompanyAdvantages() {
-  const companyAdvantages = [{
-    imageUrl: "/assets/delivery1.png",
-    title: "Free Shipping World Wide",
-    description: "Tell us About Your Service",
-  }, {
-    imageUrl: "/assets/money-back.png",
-    title: "Money Back Guarantee",
-    description: "Within 30 Day For On Exchange",
-  }, {
-    imageUrl: "/assets/online-support.png",
-    title: "Online Support",
-    description: "24 Hours a Day 7 Day in Week",
-  }];
-
   return (
     <div className="mx-auto flex gap-x-[153px]  items-center bg-custom-fade  max-w-[1616px] mt-[150px] py-[68px] px-[65px] rounded-[15px]">
       {

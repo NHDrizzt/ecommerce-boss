@@ -13,7 +13,7 @@ export default function Home() {
   const [cartTotalValue, setCartTotalValue] = useState(0)
 
   return (
-    <main className="">
+    <main>
       <Header cartItems={cartItems}  setCartItems={setCartItems} cartTotalValue={cartTotalValue} setCartTotalValue={setCartTotalValue}/>
       <SubHeader />
       <CompanyAdvantages  />

@@ -1,9 +1,8 @@
 'use client';
 
 import Image from "next/image";
-
-import excludeSrc from '/public/assets/logo.png';
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 
 
 export default function Header({ cartItems, setCartItems, cartTotalValue, setCartTotalValue }) {
@@ -79,10 +78,11 @@ const handleCartModel = () => {
   return (
     <header className="flex justify-between">
       <div className="pt-[70px] pl-[58px]">
-        <Image
-        src={excludeSrc}
-        alt="logo"
-      /></div>
+        <div className="w-[98px] h-[44px]">
+          <Image className="w-full h-full" sizes="100vw" src="/assets/logo.png" width="0" height="0" alt="logo"/>
+        </div>
+
+      </div>
       <nav className="w-[786px] z-50 mt-[43px] rounded-l-full bg-custom-fade py-[32px]">
         <ul className="flex items-center text-white text-xl font-semibold leading-4	tracking-widest">
           <li className="pr-[52px] pl-[62px]">HOME</li>
@@ -107,7 +107,9 @@ const handleCartModel = () => {
         </ul>
       </nav>
       <div className="absolute inset-x-0 -z-10 top-[273px] flex justify-center">
-        <Image src="/assets/BIGAIR.png" width={1904} height={20} alt="big air logo"/>
+        <div className="w-[1884px] h-auto">
+          <Image className="w-full h-full" sizes="100vw" src="/assets/BIGAIR.png" width="0" height="0" alt="big air logo"/>
+        </div>
       </div>
       <div className="absolute drop-shadow-white inset-x-0 -z-10 top-0 flex justify-center mb-4 filter-shadow ">
         <div className="w-[840px]">
@@ -155,3 +157,10 @@ const handleCartModel = () => {
     </header>
   );
 }
+  //prop validation
+  Header.propTypes = {
+    cartItems: PropTypes.array,
+    setCartItems: PropTypes.func,
+    cartTotalValue: PropTypes.number,
+    setCartTotalValue: PropTypes.func
+  }
