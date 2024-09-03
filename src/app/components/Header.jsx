@@ -126,7 +126,7 @@ const handleCartModel = () => {
                         <h1 className="text-black text-center pb-4">Cart</h1>
                       {
                             cartItems.map((item, index) => (
-                                <div id={`cart-item-${index}`} key={index} className={'border bg-white shadow-xl rounded-[10px] pb-2 mb-2 mt-4 p-3'}>
+                                <div id={`cart-item-${index}`} key={item.id} className={'border bg-white shadow-xl rounded-[10px] pb-2 mb-2 mt-4 p-3'}>
                                     <div className={'flex justify-between items-center'}>
                                       <div className="w-[100px] h-[100px]">
                                         <img className="w-full h-full object-contain" src={item.image} alt="" />

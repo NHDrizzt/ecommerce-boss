@@ -46,10 +46,6 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
     backdrop-filter: blur(30px);
   }
 
-  .filter-shadow {
-  
-  }
-
   .fade-scroll-effect {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
