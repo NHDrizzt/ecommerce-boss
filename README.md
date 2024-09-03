@@ -15,4 +15,7 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 This project has been made on a 1728px Width Screen Only
+
+
+Check it live at [https://ecommerce-boss.vercel.app/](https://ecommerce-boss.vercel.app/) in a 1728px width screen. 
  
