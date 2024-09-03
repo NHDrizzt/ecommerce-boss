@@ -138,11 +138,11 @@ const handleCartModel = () => {
                                           <Image className="w-full h-full" sizes="100vw" src={item.image} width="0" height="0" alt={item.name} />
                                         </div>
                                         <div className="space-y-2">
-                                          <p className="text-[24px]">{item.name}</p>
+                                          <p className="text-[24px] font-semibold pt-2">{item.name}</p>
                                           <p className="max-w-[200px] text-[12px]">{item.description}</p>
                                         </div>
                                       </div>
-                                      <p className="text-[24px] font-bold">{currencyFormatter.format(item.price)}</p>
+                                      <p className="text-[24px] mb-auto p-2 font-bold">{currencyFormatter.format(item.price)}</p>
                                     </div>
                                     <div className="ml-auto flex justify-between">
                                       <div className="flex gap-x-2">
@@ -154,10 +154,8 @@ const handleCartModel = () => {
                                         <button className="border max-w-[65px] flex items-center justify-center rounded-md mr-2" id={'remove-item-button'} onClick={() => removeOneItemFromCart(item)}>
                                           <div>Remove</div>
                                         </button>
-
                                       </div>
-             
-                                      <p data-test-id="item-quantity" className="text-[24px]">Qty: {item.quantity}</p>
+                                      <p data-test-id="item-quantity" className="pr-2 text-[24px]">Qty: {item.quantity}</p>
                                     </div>
 
                                 </div>
