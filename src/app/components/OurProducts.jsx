@@ -31,7 +31,7 @@ export default function OurProducts({
       <div data-test-id="parent-grid-products" className="grid grid-cols-3 gap-x-10 m-[50px] gap-y-5">
         {
           data.map((product) => (
-            <div data-test-id="grid-products" className="relative custom-gradient shadow-custom-shadow flex flex-col justify-center items-center rounded-[70px] max-h-[678px] " key={product.id}>
+            <div aria-label="product" data-test-id="grid-products" className="relative custom-gradient shadow-custom-shadow flex flex-col justify-center items-center rounded-[70px] max-h-[678px] " key={product.id}>
               <div className="absolute w-[461px] h-[461px] -top-2 ">
               <img className="drop-shadow-shoes w-full h-full object-cover" src={product.image} alt={product.alt} />
               </div>
@@ -39,8 +39,8 @@ export default function OurProducts({
               <p className="text-[18px] font-semibold max-w-[241px] mt-[30px]">{product.description}</p>
               <div className="flex justify-between items-center max-w-[368px] w-full mt-[38px] mb-[90px]">
                 <p className="text-[32px] font-semibold">Rs. {product.price},00</p>
-                <button id="product-icon" onClick={() => AddItemToCart(product)} className="flex items-center border-2 rounded-xl p-3 border-white">
-                  <img className="" src="assets/bag.png" alt="Bag Icon" />
+                <button aria-labelledby={`Add ${product.name} to cart`} id="product-icon" onClick={() => AddItemToCart(product)} className="flex items-center border-2 rounded-xl p-3 border-white">
+                  <img className="" src="assets/bag.png" alt="Bag to add to the cart icon" />
                 </button>
               </div>
             </div>

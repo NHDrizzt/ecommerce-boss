@@ -26,7 +26,7 @@ export default function CompanyAdvantages() {
   }];
 
   return (
-    <div className="mx-auto flex gap-x-[153px]  items-center bg-custom-fade  max-w-[1616px] mt-[150px] py-[68px] px-[65px]">
+    <div className="mx-auto flex gap-x-[153px]  items-center bg-custom-fade  max-w-[1616px] mt-[150px] py-[68px] px-[65px] rounded-[15px]">
       {
         companyAdvantages.map((advantage) => (
           <div key={advantage.title} className="flex items-center z-10 gap-x-4 border flex-1 max-w-[391px] py-[42px] pl-[22px] pr-[33px] rounded-xl text-center">

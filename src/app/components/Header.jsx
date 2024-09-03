@@ -9,6 +9,13 @@ import { useEffect, useState } from "react";
 export default function Header({ cartItems, setCartItems, cartTotalValue, setCartTotalValue }) {
   const [isCartOpen, setIsCartOpen] = useState(false)
   
+  const currencyFormatter = new Intl.NumberFormat(
+      'pt-BR',
+      {
+        style: 'currency',
+        currency: 'BRL',
+      },
+    );
 
   useEffect(() => {
     const storedCartItems = localStorage.getItem('cartItems');
@@ -21,11 +28,11 @@ export default function Header({ cartItems, setCartItems, cartTotalValue, setCar
 useEffect(() => {
   const handleClickOutside = (event) => {
     const cartModal = document.getElementById('cart-modal');
-    if (cartModal && !cartModal.contains(event.target)) {
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartModal && !cartModal.contains(event.target) && !cartIcon.contains(event.target)) {
       setIsCartOpen(false);
     }
   };
-
   if (isCartOpen) {
     document.addEventListener('mousedown', handleClickOutside);
   } else {
@@ -63,6 +70,7 @@ const RemoveOneItemFromCart = (item) => {
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   }
 };
+
 
 const handleCartModel = () => {
     setIsCartOpen(!isCartOpen)
@@ -138,7 +146,7 @@ const handleCartModel = () => {
                             ))
                       }
                       <div>
-                        <p id="cart-total-value" className="text-[24px] pt-8">Total Value: {cartTotalValue},00</p>
+                        <p id="cart-total-value" className="text-[24px] pt-8">Total Value: {currencyFormatter.format(cartTotalValue)}</p>
                       </div>
                   </div>
               )

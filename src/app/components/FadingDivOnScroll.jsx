@@ -25,7 +25,7 @@ const FadingDivOnScroll = () => {
     >
       <div className={'flex items-center bg-gradient-to-b from-white justify-center w-[50px] h-[80px] rounded-full'}>
         <div className={'bg-original w-[40px] h-[65px] rounded-full bg-gradient-to-b from-transparent pl-[6px] pt-[5px]'}>
-          <div className={'w-[28px] h-[28px] mb-[50px] rounded-full bg-white bg-gradient-to-b from-white to-blue-300 bolinha '}></div>
+          <div className={'w-[28px] h-[28px] mb-[50px] rounded-full bg-white bg-gradient-to-b from-white to-blue-300 fade-scroll-effect '}></div>
         </div>
       </div>
     </div>

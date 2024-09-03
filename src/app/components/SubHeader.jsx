@@ -3,7 +3,7 @@ import FadingDivOnScroll from "./FadingDivOnScroll";
 
 export default function SubHeader() {
   return (
-    <section className="flex items-center mt-[744px] z-60 ">
+    <section aria-labelledby="Trending Shoes Area" className="flex items-center mt-[744px] z-60 ">
       <div className="ml-[58px]">
         <p className="text-[58px] font-bold">Walk Like a Boss</p>
         <p className="text-lg font-bold pl-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
