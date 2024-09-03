@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
 
   return (
-    <section className="bg-black h-[567px] max-h-[567px] mt-[185px]">
+    <section className="bg-black h-[567px] max-h-[567px] diagonal-gradient-end">
         <div className="pt-[82px] flex justify-center">
             <div className="w-[168px] h-[73px]">
               <Image className="w-full h-full" sizes="100vw" src="/assets/logo.png" width="0" height="0" alt="boss shoes logo" />

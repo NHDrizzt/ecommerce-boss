@@ -3,7 +3,7 @@ import { customers } from "../utils/constants";
 
 export default function CustomerTestimonials() {
   return (
-    <section className="flex flex-col justify-center items-center mt-[200px]">
+    <section className="flex flex-col justify-center items-center pt-[200px] pb-[185px] diagonal-gradient-middle">
       <div className="flex flex-col justify-center items-center  ">
         <div className="text-center">
           <h1 className="text-[71px] font-semibold">What Our </h1>
