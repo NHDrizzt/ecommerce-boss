@@ -14,6 +14,7 @@ module.exports = {
       dropShadow: {
         'shoes': '0 30px 64.5px rgba(0, 0, 0, 0.25)',
         'white': '0 15px 10px rgba(0, 0, 0, 0.20)',
+        'product-shoes': '0 30px 64.5px rgba(0, 0, 0, 0.25)',
       },
       
       backgroundImage: {

@@ -3,7 +3,7 @@ import FadingDivOnScroll from "./FadingDivOnScroll";
 
 export default function SubHeader() {
   return (
-    <section aria-labelledby="Trending Shoes Area" className="flex items-center mt-[744px] z-60 ">
+    <section aria-labelledby="Trending Shoes" className="flex items-center mt-[744px] z-60 ">
       <div className="ml-[58px]">
         <p className="text-[58px] font-bold">Walk Like a Boss</p>
         <p className="text-lg font-bold pl-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
@@ -21,11 +21,11 @@ export default function SubHeader() {
         </div>
       </div>
       <div className="relative ml-[277px] bg-custom-fade max-h-[190px] max-w-[361px] rounded-md ">
-        <div className=" ">
-          <img className="absolute -top-9 left-16" src="/assets/discount50.png" alt="Discount 50%" />
-          <div className="relative w-[470px]">
-            <img className="absolute -top-14 -left-52 w-full h-auto object-cover" alt="Rose Gold Feminine Shoes" src="/assets/rose-gold-feminine-shoe.png" />
-          </div>
+        <div className="absolute -top-9 left-16">
+          <Image className="w-full h-full" sizes="100vw" src="/assets/discount50.png" width="0" height="0" alt="Discount 50%" />
+        </div>
+        <div className="absolute -top-14 -left-52  w-[470px]">
+          <Image className="w-full h-full" sizes="100vw" src="/assets/rose-gold-feminine-shoe.png" width="0" height="0" alt="Rose Gold Feminine Shoes" />
         </div>
         <div className="pl-[158px] py-[37px] pr4">
           <p className="text-2xl font-bold">Our Trending Arrivals</p>

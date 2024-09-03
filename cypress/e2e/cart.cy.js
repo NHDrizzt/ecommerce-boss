@@ -34,7 +34,8 @@ describe('template spec', () => {
     cy.get('#cart-modal').should('contain.text', 'Cart');
     cy.get('#cart-modal').should('contain.text', 'Total Value');
     cy.get('#cart-modal').within(() => {
-      cy.get('p#cart-total-value').should('have.text', formattedValue);
+      //get the span after the p tag
+      cy.get('span').should('have.text', formattedValue);
     })
   })
 
@@ -45,7 +46,7 @@ describe('template spec', () => {
     })
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').within(() => {
-      cy.get('p#cart-total-value').should('have.text', formattedValue);
+      cy.get('span').should('have.text', formattedValue);
     })
   })
 
@@ -55,7 +56,7 @@ describe('template spec', () => {
     })
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').should('contain.text', 'Green Airoo 1');
-    cy.get('#cart-modal').should('contain.text', 'Quantity: 1');
+    cy.get('#cart-modal').should('contain.text', 'Qty: 1');
   })
 
   it('should add an item to the cart and remove it', () => {
@@ -77,7 +78,7 @@ describe('template spec', () => {
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').within(() => {
       cy.get('button#add-item-button').click();
-      cy.get('[data-test-id="item-quantity"]').should('have.text', 'Quantity: 2');
+      cy.get('[data-test-id="item-quantity"]').should('have.text', 'Qty: 2');
     })
     cy.get('#cart-modal').should('contain.text', formattedValue);
   })
@@ -93,7 +94,7 @@ describe('template spec', () => {
     cy.reload();  
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').should('contain.text', 'Green Airoo 1');
-    cy.get('#cart-modal').should('contain.text', 'Quantity: 2');
+    cy.get('#cart-modal').should('contain.text', 'Qty: 2');
     cy.get('#cart-modal').should('contain.text', formattedValue);
   })
 
@@ -112,7 +113,7 @@ describe('template spec', () => {
     });
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').within(() => {
-      cy.get('p#cart-total-value').should('have.text', formattedValue);
+      cy.get('span').should('have.text', formattedValue);
     })
   })
 

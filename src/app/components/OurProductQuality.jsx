@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function OurProductQuality() {
   return (
-    <section className="mt-[524px] mx-auto flex gap-x-10 bg-diagonal-gradient-start">
+    <section aria-labelledby="Product Quality" className="mt-[524px] mx-auto flex gap-x-10 bg-diagonal-gradient-start">
       <div className="pl-[165px]">
         <h1 className="text-[71px] font-semibold w-[677px]">Our Product Quality</h1>
         <div className="flex flex-col gap-y-[40px] mt-[56px]">
@@ -26,8 +26,8 @@ export default function OurProductQuality() {
       </div>
       <div className="relative">
         <img src="/assets/ellipse3.png " alt="" />
-        <div className="w-[841px]">
-          <img className="absolute -rotate-12 right-40 -top-24 w-full h-full object-cover " src="/assets/greenshoes.png" alt="Green Shoes" />  
+        <div className="w-[858px] h-[858px] absolute -rotate-[15deg] -left-48 -top-[210px] ">
+          <Image className="w-full h-full" sizes='100vw' src="/assets/greenshoes.png" alt="Green Shoes" width="0" height="0" />
         </div>
       </div>
     </section>

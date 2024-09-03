@@ -35,8 +35,8 @@ export default function OurProducts({
         {
           data.map((product) => (
             <div aria-label="product" data-test-id="grid-products" className="relative custom-gradient shadow-custom-shadow flex flex-col justify-center items-center rounded-[70px] max-h-[678px] " key={product.id}>
-              <div className="absolute w-[461px] h-[461px] -top-2 ">
-              <img className="drop-shadow-shoes w-full h-full object-cover" src={product.image} alt={product.alt} />
+              <div className="absolute w-[461px] h-[461px] -top-2 drop-shadow-product-shoes">
+                <Image className="w-full h-full" sizes="100vw" src={product.image} alt={product.alt} width="0" height="0" />
               </div>
               <p className="text-[38px] mt-[440px] font-semibold">{product.name}</p>
               <p className="text-[18px] font-semibold max-w-[241px] mt-[30px]">{product.description}</p>

@@ -12,7 +12,7 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
   }
 
   :root {
-    --base-background-color: rgba(255, 255, 255, 0.1);
+    --base-background-color: rgba(255, 255, 255, 0.01);
   }
   /* ------------------- Defaults ------------------- */
   html {
@@ -38,10 +38,11 @@ body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6, p {
 
   .custom-gradient {
     background: linear-gradient(to top, var(--base-background-color), transparent);
+    backdrop-filter: blur(20px);
   }
 
   .bg-custom-fade {
-    background-color: rgba(255,255,255, 0.09);
+    background-color: rgba(255,255,255, 0.05);
     
     backdrop-filter: blur(30px);
   }

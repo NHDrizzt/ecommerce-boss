@@ -14,7 +14,7 @@ export default function Header({ cartItems, setCartItems, cartTotalValue, setCar
         style: 'currency',
         currency: 'BRL',
       },
-    );
+  );
 
   useEffect(() => {
     const storedCartItems = localStorage.getItem('cartItems');
@@ -22,10 +22,10 @@ export default function Header({ cartItems, setCartItems, cartTotalValue, setCar
         setCartTotalValue(JSON.parse(storedCartItems).reduce((acc, item) => acc + (item.price * item.quantity), 0))
         setCartItems(JSON.parse(storedCartItems));
     }
-}, []);
+  }, [setCartItems, setCartTotalValue]);
 
 useEffect(() => {
-  const handleClickOutside = (event) => {
+  const handleClickOutsideOfModal = (event) => {
     const cartModal = document.getElementById('cart-modal');
     const cartIcon = document.getElementById('cart-icon');
     if (cartModal && !cartModal.contains(event.target) && !cartIcon.contains(event.target)) {
@@ -33,35 +33,35 @@ useEffect(() => {
     }
   };
   if (isCartOpen) {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutsideOfModal);
   } else {
-    document.removeEventListener('mousedown', handleClickOutside);
+    document.removeEventListener('mousedown', handleClickOutsideOfModal);
   }
 
   return () => {
-    document.removeEventListener('mousedown', handleClickOutside);
+    document.removeEventListener('mousedown', handleClickOutsideOfModal);
   };
 }, [isCartOpen]);
 
-const AddOneMoreItemToCart = (index) => {
+const addOneItemToCart = (index) => {
     cartItems[index].quantity += 1;
     setCartTotalValue(cartTotalValue + cartItems[index].price)
     setCartItems([...cartItems])
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
-const RemoveOneItemFromCart = (item) => {
-  const index = cartItems.findIndex(cartItem => cartItem.id === item.id);
+const removeOneItemFromCart = (item) => {
+  const cartItemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id);
   
-  if (index !== -1) {
+  if (cartItemIndex !== -1) {
     const updatedCartItems = [...cartItems];
-    const itemToUpdate = updatedCartItems[index];
+    const itemToUpdate = updatedCartItems[cartItemIndex];
 
     if (itemToUpdate.quantity > 1) {
       itemToUpdate.quantity -= 1;
       setCartTotalValue(cartTotalValue - itemToUpdate.price);
     } else {
-      updatedCartItems.splice(index, 1);
+      updatedCartItems.splice(cartItemIndex, 1);
       setCartTotalValue(cartTotalValue - itemToUpdate.price);
     }
 
@@ -88,7 +88,9 @@ const handleCartModel = () => {
           <li className="pr-[52px] pl-[62px]">HOME</li>
           <div className="flex items-center pr-[83px] gap-x-3">
            <p className="">OUR PRODUCT&rsquo;S</p>
-           <img className="w-[14px] h-[14px]" src="/assets/right-arrow-3.png" alt="" />
+           <div className="w-[14px] h-[14px]">
+              <Image className="w-full h-full" sizes="100vw" src="/assets/right-arrow-3.png" width="0" height="0" alt="right arrow"/>
+           </div>
           </div>
           <div className="relative flex items-center gap-x-[45px]">
             <div className="w-[33px] h-[33px] max-w-[33px]">
@@ -117,39 +119,56 @@ const handleCartModel = () => {
         </div>
       </div>   
       <div className="absolute -z-20 ">
-        <img src="/assets/ellipse-2.png" alt="ellipse 1 drawn"/>
+        <div className="w-[740px] h-[1460px]">
+          <Image className="w-full h-full" sizes="100vw" src="/assets/ellipse-2.png" width="0" height="0" alt="ellipse 2"/>
+        </div>
+
       </div>
 
         {
               isCartOpen && (
-                  <div id={'cart-modal'} className={'absolute w-[600px] h-auto  overflow-y-scroll  max-h-[1400px] border  bg-white right-0 shadow-3xl drop-shadow-sm mt-40 rounded-[40px] p-10 z-30 mr-20 text-black'}>
+                  <div id={'cart-modal'} className={'absolute w-[600px] h-auto  overflow-y-scroll  max-h-[1400px] border  bg-[rgb(255,255,255,0.9)] right-0 shadow-3xl drop-shadow-sm mt-40 rounded-[40px] p-10 z-30 mr-20 text-black'}>
                         <h1 className="text-black text-center pb-4">Cart</h1>
                       {
                             cartItems.map((item, index) => (
-                                <div id={`cart-item-${index}`} key={item.id} className={'border bg-white shadow-xl rounded-[10px] pb-2 mb-2 mt-4 p-3'}>
+                                <div id={`cart-item-${index}`} key={item.id} className={'border bg-[rgb(255,255,255,0.8)] shadow-xl rounded-[10px] pb-2 mb-2 mt-4 p-3'}>
                                     <div className={'flex justify-between items-center'}>
-                                      <div className="w-[100px] h-[100px]">
-                                        <img className="w-full h-full object-contain" src={item.image} alt="" />
-                                      </div>
-                                        <p className="text-[24px]">{item.name}</p>
-                                        <p data-test-id="item-quantity" className="text-[24px]">Quantity: {item.quantity}</p>
-                                    </div>
-                                    <div className="ml-auto flex ">
-                                      <button className="" id={'add-item-button'} onClick={() => AddOneMoreItemToCart(index)}>
-                                        <div className="border w-[50px] h-[50px] flex items-center justify-center rounded-md mr-2">
-                                          +
+                                      <div className="flex gap-x-4">
+                                        <div className="w-[100px] h-[100px] mb-4 bg-gray-200 rounded-sm">
+                                          <Image className="w-full h-full" sizes="100vw" src={item.image} width="0" height="0" alt={item.name} />
                                         </div>
-                                      </button>
-                                      <button className="border w-[50px] h-[50px] flex items-center justify-center rounded-md mr-2" id={'remove-item-button'} onClick={() => RemoveOneItemFromCart(item)}>
-                                        <div>-</div>
-                                      </button>
+                                        <div className="space-y-2">
+                                          <p className="text-[24px]">{item.name}</p>
+                                          <p className="max-w-[200px] text-[12px]">{item.description}</p>
+                                        </div>
+                                      </div>
+                                      <p className="text-[24px] font-bold">{currencyFormatter.format(item.price)}</p>
+                                    </div>
+                                    <div className="ml-auto flex justify-between">
+                                      <div className="flex gap-x-2">
+                                        <button className="" id={'add-item-button'} onClick={() => addOneItemToCart(index)}>
+                                          <div className="border p-3 px-4 max-w-[65px]  flex items-center justify-center rounded-md">
+                                            Add
+                                          </div>
+                                        </button>
+                                        <button className="border max-w-[65px] flex items-center justify-center rounded-md mr-2" id={'remove-item-button'} onClick={() => removeOneItemFromCart(item)}>
+                                          <div>Remove</div>
+                                        </button>
+
+                                      </div>
+             
+                                      <p data-test-id="item-quantity" className="text-[24px]">Qty: {item.quantity}</p>
                                     </div>
 
                                 </div>
                             ))
                       }
-                      <div>
-                        <p id="cart-total-value" className="text-[24px] pt-8">Total Value: {currencyFormatter.format(cartTotalValue)}</p>
+                      <div className="flex pt-8 ">
+                        <p id="cart-total-value" className="text-[24px]">Total Value: </p>
+                        <span className="text-[24px] ml-auto">{currencyFormatter.format(cartTotalValue)}</span>
+                      </div>
+                      <div className="mx-auto flex flex-1 pt-8">
+                        <button className="p-2 border-2 bg-[rgb(255,255,255,0.8)] rounded-md hover:bg-[#82c5eb] hover:text-white font-semibold text-[18px]"> Proceed to Checkout</button>
                       </div>
                   </div>
               )
