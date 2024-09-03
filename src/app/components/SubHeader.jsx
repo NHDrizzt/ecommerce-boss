@@ -19,7 +19,9 @@ export default function SubHeader() {
       <div className="relative ml-[277px] bg-custom-fade max-h-[190px] max-w-[361px] rounded-md ">
         <div className=" ">
           <img className="absolute -top-9 left-16" src="/assets/discount50.png" alt="Discount 50%" />
-          <img className="absolute -top-10 -left-36 w-full " alt="Rose Gold Feminine Shoes" src="/assets/rose-gold-feminine-shoe.png" />
+          <div className="relative w-[470px]">
+            <img className="absolute -top-14 -left-52 w-full h-auto object-cover" alt="Rose Gold Feminine Shoes" src="/assets/rose-gold-feminine-shoe.png" />
+          </div>
         </div>
         <div className="pl-[158px] py-[37px] pr4">
           <p className="text-2xl font-bold">Our Trending Arrivals</p>
