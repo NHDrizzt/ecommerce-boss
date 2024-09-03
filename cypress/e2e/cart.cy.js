@@ -1,3 +1,5 @@
+import { formatCurrencyText } from '../utils/formattingNumber';
+
 describe('template spec', () => {
   beforeEach(() => {
     cy.visit('/')
@@ -27,21 +29,23 @@ describe('template spec', () => {
   });
 
   it('should check if all default texts inside the cart are correct', () => {
+    const formattedValue = formatCurrencyText(0);
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').should('contain.text', 'Cart');
     cy.get('#cart-modal').should('contain.text', 'Total Value');
     cy.get('#cart-modal').within(() => {
-      cy.get('p#cart-total-value').should('have.text', 'Total Value: 0,00');
+      cy.get('p#cart-total-value').should('have.text', formattedValue);
     })
   })
 
   it('should add an item to the cart and check if the total value is correct', () => {
+    const formattedValue = formatCurrencyText(7800);
     cy.get('[data-test-id="grid-products"]').first().within(() => {
       cy.get('button').click()
     })
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').within(() => {
-      cy.get('p#cart-total-value').should('have.text', 'Total Value: 7800,00');
+      cy.get('p#cart-total-value').should('have.text', formattedValue);
     })
   })
 
@@ -66,6 +70,7 @@ describe('template spec', () => {
   })
 
   it('should add an item to the cart and increase its quantity and the total value went up multiplied by the same amount', () => {
+    const formattedValue = formatCurrencyText(15600);
     cy.get('[data-test-id="grid-products"]').first().within(() => {
       cy.get('button').click()
     })
@@ -74,9 +79,10 @@ describe('template spec', () => {
       cy.get('button#add-item-button').click();
       cy.get('[data-test-id="item-quantity"]').should('have.text', 'Quantity: 2');
     })
-    cy.get('#cart-modal').should('contain.text', 'Total Value: 15600,00');
+    cy.get('#cart-modal').should('contain.text', formattedValue);
   })
   it('should check if local storage has the correct value', () => {
+    const formattedValue = formatCurrencyText(15600);
     cy.get('[data-test-id="grid-products"]').first().within(() => {
       cy.get('button').click()
     })
@@ -88,7 +94,7 @@ describe('template spec', () => {
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').should('contain.text', 'Green Airoo 1');
     cy.get('#cart-modal').should('contain.text', 'Quantity: 2');
-    cy.get('#cart-modal').should('contain.text', 'Total Value: 15600,00');
+    cy.get('#cart-modal').should('contain.text', formattedValue);
   })
 
   it('should check if the cart modal closes when the bag icon is clicked again', () => {
@@ -98,15 +104,15 @@ describe('template spec', () => {
   })
 
   it('should add all the 6 items from the products section to the cart and check if the total value is correct', () => {
+    const formattedValue = formatCurrencyText(46800);
     cy.get('[data-test-id="grid-products"]').each((product) => {
-      // Within each product, find all buttons and click each one
       cy.wrap(product).find('button').each((button) => {
-        cy.wrap(button).click(); // Click each button found
+        cy.wrap(button).click();
       });
     });
     cy.get('button#cart-icon').click();
     cy.get('#cart-modal').within(() => {
-      cy.get('p#cart-total-value').should('have.text', 'Total Value: 46800,00');
+      cy.get('p#cart-total-value').should('have.text', formattedValue);
     })
   })
 
@@ -129,6 +135,12 @@ describe('template spec', () => {
       cy.get('button#remove-item-button').eq(1).click();
     })
     cy.get('#cart-modal').should('contain.text', 'Green Airoo 1');
+  })
+
+  it('should open the cart modal then closes by clicking on the same icon button', () => {
+    cy.get('button#cart-icon').click();
+    cy.get('button#cart-icon').click();
+    cy.get('#cart-modal').should('not.exist');
   })
 
 })  
